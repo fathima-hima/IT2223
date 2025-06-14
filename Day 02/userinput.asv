@@ -1,0 +1,7 @@
+% getti user input for integers
+x=input("Enter the number ");
+disp(['you entered ',num2str(x)])
+
+% get user input for string
+name=input("Enter your name ",'s');
+disp("You entered "+name);
