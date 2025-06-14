@@ -1,0 +1,87 @@
+Sure! This code is an implementation of Insertion Sort in MATLAB. Let me explain it step by step, line by line:
+
+matlab
+Copy
+Edit
+A = [5, 4, 10, 1, 6, 2];
+This creates an array A with the elements [5, 4, 10, 1, 6, 2] which we want to sort.
+
+matlab
+Copy
+Edit
+n = length(A);
+n stores the length of the array A, which is 6 here.
+
+matlab
+Copy
+Edit
+for i = 2:n
+This for loop iterates over the array starting from the second element (index 2) to the last element (index n).
+
+We start at 2 because the first element by itself is already "sorted."
+
+matlab
+Copy
+Edit
+    key = A(i);
+The variable key stores the current element we want to insert into the sorted portion of the array (to the left of index i).
+
+matlab
+Copy
+Edit
+    j = i - 1;
+j is initialized to the index just before i, representing the last element of the "sorted" section.
+
+matlab
+Copy
+Edit
+    while j >= 1 && A(j) > key
+This while loop checks two conditions:
+
+j >= 1: to make sure we don't go out of array bounds on the left side.
+
+A(j) > key: meaning the current element at index j is greater than the key and needs to be shifted right to make space for key.
+
+matlab
+Copy
+Edit
+        A(j + 1) = A(j);
+Shift the element A(j) one position to the right to A(j + 1).
+
+matlab
+Copy
+Edit
+        j = j - 1;
+Move one position left to continue checking and shifting elements if necessary.
+
+matlab
+Copy
+Edit
+    end
+End of the while loop. Once the correct spot for the key is found (either j < 1 or A(j) <= key), exit the loop.
+
+matlab
+Copy
+Edit
+    A(j + 1) = key;
+Insert the key in its correct position after shifting elements.
+
+matlab
+Copy
+Edit
+end
+End of the for loop. The process repeats for all elements from index 2 to n.
+
+matlab
+Copy
+Edit
+fprintf('Sorted Array:');
+disp(A);
+Print the message "Sorted Array:".
+
+Display the sorted array A.
+
+What happens overall?
+The algorithm takes each element from the unsorted part of the array (i = 2 to n) and inserts it into its correct position in the already sorted part to the left.
+
+By the end, A becomes fully sorted in ascending order.
